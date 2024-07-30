@@ -1,0 +1,529 @@
+/**
+ * Copyright (c) 2012 Anders Ekdahl (http://coffeescripter.com/)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version: 1.2.7
+ *
+ * Demo and documentation: http://coffeescripter.com/code/ad-gallery/
+ */
+
+.ad-gallery,
+.ad-gallery * {
+  margin: 0;
+  padding: 0;
+}
+.ad-gallery .ad-image-wrapper {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.ad-gallery .ad-image-wrapper .ad-loader {
+  position: absolute;
+  z-index: 3;
+  top: 48%;
+  left: 48%;
+  border: 1px solid #ccc;
+}
+.ad-gallery .ad-image-wrapper .ad-next {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 7%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+  z-index: 5;
+}
+.ad-gallery .ad-image-wrapper .ad-prev {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+  z-index: 5;
+}
+.ad-gallery .ad-nav .ad-next-small {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 5%;
+  height: 70px;
+  cursor: pointer;
+  display: block;
+  z-index: 5;
+}
+.ad-gallery .ad-nav .ad-prev-small {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 5%;
+  height: 70px;
+  cursor: pointer;
+  display: block;
+  z-index: 5;
+}
+
+.ad-gallery .ad-image-wrapper .ad-prev,
+.ad-gallery .ad-image-wrapper .ad-next {
+  /* Or else IE will hide it */
+  background: url("/assets/images/trans.gif");
+}
+.ad-gallery .ad-image-wrapper .ad-prev-small,
+.ad-gallery .ad-image-wrapper .ad-next-small {
+  /* Or else IE will hide it */
+  background: url("/assets/images/trans.gif");
+}
+.ad-gallery .ad-image-wrapper .ad-prev .ad-prev-image,
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
+  background: url("/assets/images/ad_prev.png");
+  width: 24px;
+  height: 24px;
+  /* display: none; */
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  z-index: 4;
+}
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
+  background: url("/assets/images/ad_next.png");
+  width: 24px;
+  height: 24px;
+  top: 120px;
+  right: 10px;
+  left: auto;
+}
+
+.ad-gallery .ad-nav .ad-prev-small .ad-prev-small-image,
+.ad-gallery .ad-nav .ad-next-small .ad-next-small-image {
+  background: url("/assets/images/arrow-left-mini.png");
+  width: 18px;
+  height: 18px;
+  /* display: none; */
+  position: absolute;
+  top: 26px;
+  left: 10px;
+  z-index: 4;
+}
+.ad-gallery .ad-nav .ad-next-small .ad-next-small-image {
+  background: url("/assets/images/arrow-right-mini.png");
+  width: 18px;
+  height: 18px;
+  top: 26px;
+  right: 10px;
+  left: auto;
+}
+
+.ad-gallery .ad-image-wrapper .ad-image {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.ad-gallery .ad-image-wrapper .ad-image a img {
+  border: 0;
+}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 7px;
+  text-align: left;
+  width: 100%;
+  z-index: 1;
+  background: url("/assets/images/opa75.png");
+  color: #000;
+}
+* html .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (enabled=true, sizingMethod=scale, src='opa75.png');
+}
+.ad-gallery
+  .ad-image-wrapper
+  .ad-image
+  .ad-image-description
+  .ad-description-title {
+  display: block;
+}
+.ad-gallery .ad-controls {
+  height: 20px;
+}
+.ad-gallery .ad-info {
+  float: left;
+}
+.ad-gallery .ad-slideshow-controls {
+  float: right;
+}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-start,
+.ad-gallery .ad-slideshow-controls .ad-slideshow-stop {
+  padding-left: 5px;
+  cursor: pointer;
+}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-countdown {
+  padding-left: 5px;
+  font-size: 0.9em;
+}
+.ad-gallery .ad-slideshow-running .ad-slideshow-start {
+  cursor: default;
+  font-style: italic;
+}
+.ad-gallery .ad-nav {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.ad-gallery .ad-forward,
+.ad-gallery .ad-back {
+  position: absolute;
+  top: 0;
+  height: 31px;
+  z-index: 3;
+}
+/* IE 6 doesn't like height: 100% */
+* html .ad-gallery .ad-forward,
+.ad-gallery .ad-back {
+  height: 100px;
+}
+.ad-gallery .ad-back {
+  cursor: pointer;
+  left: 0px;
+  width: 16px;
+  height: 58px;
+  display: block;
+  background: url("/assets/images/ad_scroll_back.gif") 0px 14px no-repeat;
+}
+.ad-gallery .ad-forward {
+  cursor: pointer;
+  display: block;
+  right: 0px;
+  width: 16px;
+  height: 58px;
+  background: url("/assets/images/ad_scroll_forward.gif") 0px 14px no-repeat;
+}
+.ad-gallery .ad-nav .ad-thumbs {
+  overflow: hidden;
+  width: 100%;
+}
+.ad-gallery .ad-thumbs .ad-thumb-list {
+  float: left;
+  width: 9000px;
+  list-style: none;
+}
+.ad-gallery .ad-thumbs li {
+  float: left;
+  padding-right: 5px;
+}
+.ad-gallery .ad-thumbs li a {
+  display: block;
+}
+.ad-gallery .ad-thumbs li a img {
+  border: 3px solid #ccc;
+  display: block;
+}
+.ad-gallery .ad-thumbs li a.ad-active img {
+  border: 3px solid #616161;
+}
+/* Can't do display none, since Opera won't load the images then */
+.ad-preloads {
+  position: absolute;
+  left: -9000px;
+  top: -9000px;
+}
+
+#gallery .ad-image-wrapper .ad-prev {
+  opacity: 0;
+  left: -150px;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+#gallery .ad-image-wrapper:hover .ad-prev {
+  opacity: 1;
+  left: 0px;
+}
+
+#gallery .ad-image-wrapper .ad-next {
+  opacity: 0;
+  right: -150px;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+#gallery .ad-image-wrapper:hover .ad-next {
+  opacity: 1;
+  right: 0px;
+}
+
+#gallery .ad-nav .ad-prev-small {
+  opacity: 0;
+  left: -150px;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+#gallery .ad-nav:hover .ad-prev-small {
+  opacity: 1;
+  left: 0px;
+}
+
+#gallery .ad-nav .ad-next-small {
+  opacity: 0;
+  right: -150px;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+#gallery .ad-nav:hover .ad-next-small {
+  opacity: 1;
+  right: 0px;
+}
+
+#gallery .ad-thumb-wrapper {
+  position: relative;
+}
+
+#gallery .ad-thumb-label {
+  font-family: Helvetica Neue, Arial;
+  font-weight: bold;
+  font-size: 11px;
+  color: #fff;
+  line-height: 11px;
+  height: 23px;
+  width: 118px;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+  padding: 3px 5px;
+  position: absolute;
+}
+
+#gallery .ad-active .ad-thumb-label {
+  padding: 3px 3px 1px 5px;
+  bottom: 2px;
+}
+/* ******************************************** */
+.lb-loader,.lightbox {
+  text-align: center;
+  line-height: 0
+}
+
+body:after {
+  content: url(../images/lightbox-2.9/close.png) url(../images/lightbox-2.9/loading.gif) url(../images/lightbox-2.9/prev.png) url(../images/lightbox-2.9/next.png);
+  display: none
+}
+
+.lb-dataContainer:after,.lb-outerContainer:after {
+  content: "";
+  clear: both
+}
+
+body.lb-disable-scrolling {
+  overflow: hidden
+}
+
+.lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: #000;
+  filter: alpha(Opacity=80);
+  opacity: .8;
+  display: none
+}
+
+.lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  font-weight: 400
+}
+
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  max-height: none;
+  border-radius: 3px;
+  border: 4px solid #fff
+}
+
+.lightbox a img {
+  border: none
+}
+
+.lb-outerContainer {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background-color: #fff
+}
+
+.lb-loader,.lb-nav {
+  position: absolute;
+  left: 0
+}
+
+.lb-outerContainer:after {
+  display: table
+}
+
+.lb-loader {
+  top: 43%;
+  height: 25%;
+  width: 100%
+}
+
+.lb-cancel {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background: url(../images/lightbox-2.9/loading.gif) no-repeat
+}
+
+.lb-nav {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10
+}
+
+.lb-container>.nav {
+  left: 0
+}
+
+.lb-nav a {
+  outline: 0;
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
+}
+
+.lb-next,.lb-prev {
+  height: 100%;
+  cursor: pointer;
+  display: block
+}
+
+.lb-nav a.lb-prev {
+  width: 34%;
+  left: 0;
+  float: left;
+  background: url(../images/lightbox-2.9/prev.png) left 48% no-repeat;
+  filter: alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity .6s;
+  -moz-transition: opacity .6s;
+  -o-transition: opacity .6s;
+  transition: opacity .6s
+}
+
+.lb-nav a.lb-prev:hover {
+  filter: alpha(Opacity=100);
+  opacity: 1
+}
+
+.lb-nav a.lb-next {
+  width: 64%;
+  right: 0;
+  float: right;
+  background: url(../images/lightbox-2.9/next.png) right 48% no-repeat;
+  filter: alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity .6s;
+  -moz-transition: opacity .6s;
+  -o-transition: opacity .6s;
+  transition: opacity .6s
+}
+
+.lb-nav a.lb-next:hover {
+  filter: alpha(Opacity=100);
+  opacity: 1
+}
+
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px
+}
+
+.lb-dataContainer:after {
+  display: table
+}
+
+.lb-data {
+  padding: 0 4px;
+  color: #ccc
+}
+
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em
+}
+
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1em
+}
+
+.lb-data .lb-caption a {
+  color: #4ae
+}
+
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 12px;
+  color: #999
+}
+
+.lb-data .lb-close {
+  display: block;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url(../images/lightbox-2.9/close.png) top right no-repeat;
+  text-align: right;
+  outline: 0;
+  filter: alpha(Opacity=70);
+  opacity: .7;
+  -webkit-transition: opacity .2s;
+  -moz-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s
+}
+
+.lb-data .lb-close:hover {
+  cursor: pointer;
+  filter: alpha(Opacity=100);
+  opacity: 1
+}

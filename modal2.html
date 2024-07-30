@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+    <title>Document</title>
+    <style>
+      .col-position {
+        padding-right: 0px;
+        padding-left: 0px;
+        position: relative;
+      }
+
+      .img-fluids {
+        width: 100%;
+        height: 100%;
+      }
+
+      .overlays {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          #ffffff 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 48px;
+        left: 90px;
+        color: #000;
+        text-align: center;
+      }
+      .wc {
+        font-family: Barlow Condensed;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 38px;
+        letter-spacing: 0em;
+        color: #1f62ae;
+      }
+      .ayr {
+        font-family: Barlow Condensed;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 34px;
+        letter-spacing: 0em;
+        color: #1f62ae;
+      }
+      .tl {
+        font-family: Barlow Condensed;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 34px;
+        letter-spacing: 0em;
+        color: #1f62ae;
+      }
+      /* overlay end */
+      .img {
+        vertical-align: middle;
+        border-style: none;
+      }
+      .modal-fonts-para {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0em;
+        text-align: center;
+        font-family: Source Sans Pro;
+        width: 270px;
+      }
+      .form-end-para {
+        font-family: Source Sans Pro;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+        width: 247px;
+        padding-left: 10px;
+      }
+      .forgot-fonts {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 13px;
+        letter-spacing: 0em;
+        color: #5cb8ff;
+      }
+      .forgot-fonts a {
+        text-decoration: none;
+      }
+      .label-fonts {
+        color: #5e5e5e;
+        font-family: Barlow Condensed;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+      }
+      .NEm {
+        color: #5e5e5e;
+        font-family: Barlow Condensed;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+      }
+      .create-account-para-fonts {
+        color: #363636;
+        font-family: Source Sans Pro;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+      }
+      .btn-close.custom-close-btn {
+        color: #1f62ae !important;
+      }
+      /* .w-800 {
+        max-width: 800px;
+      }
+      .mr-15 {
+        margin-right: 15px;
+      }
+      .register-btn {
+        width: 312px;
+        height: 36px;
+        color: #ffff;
+        background: #1f62ae;
+      }
+      .register-btn:hover {
+        background: #1f62ae;
+        color: #ffff;
+      }
+      .signin-form .form-control:focus {
+        box-shadow: none !important;
+        border: none;
+        border-bottom: 1px solid #5cb8ff;
+      }
+      .signin-form .form-control {
+        border: none;
+        border-bottom: 1px solid #5cb8ff;
+        border-radius: 0px;
+      } */
+      /*  */
+      /* .input-group {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+      } */
+      /* .input-icon-container {
+        display: flex;
+        flex-direction: row;
+        border: none;
+        border-bottom: 1px solid #5cb8ff;
+        border-radius: 0px;
+        background: #fff;
+        align-items: center;
+        overflow: hidden;
+      }
+      .input-icon-container input {
+        outline: none;
+        border: none;
+        background: none;
+        font-size: 1em;
+        padding: 0.5em;
+        color: inherit;
+        flex: auto 1 1;
+        width: 100%;
+        border-radius: 0px;
+        background: none;
+        background-color: transperant;
+      }
+      .cp {
+        cursor: pointer;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#RegisterModal"
+    >
+      Launch static backdrop modal
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="RegisterModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="RegisterModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog w-800 modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="row">
+              <div class="col-md-6 col-position">
+                <img src="Rectangle 511.svg" class="img img-fluids" alt="" />
+                <div class="overlays"></div>
+                <div class="overlay-text">
+                  <h1 class="wc">Welcome to login</h1>
+                  <h1 class="ayr">Are You Ready</h1>
+                  <h1 class="tl">To Login?</h1>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row mr-15">
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="button"
+                      class="btn-close mt-2 pr-0 custom-close-btn"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="d-flex justify-content-center">
+                      <img src="Images/logo HR 3.png" alt="" />
+                    </div>
+
+                    <div class="mt-3 d-flex justify-content-center">
+                      <h4 class="modal-fonts-para">
+                        SAT is a global leader in car exports, operating a cross
+                        border e-commerce site.
+                      </h4>
+                    </div>
+                    <!--  -->
+                    <form class="row g-3 signin-form mt-3">
+                      <div class="col-md-6">
+                        <label for="inputname" class="form-label NEm"
+                          >Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputname"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label NEm"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="inputEmail4"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group" name="password">
+                          <label for="password" class="label-fonts label"
+                            >Password</label
+                          >
+                          <div class="input-icon-container">
+                            <input type="password" id="passwordtype" />
+                            <i class="fa fa-eye-slash cp" id="passwordIcon"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group" name="password">
+                          <label for="Confirmpassword" class="label-fonts label"
+                            >Confirm Password</label
+                          >
+                          <div class="input-icon-container">
+                            <input type="password" id="passwordtype2" />
+                            <i
+                              class="fa fa-eye-slash cp"
+                              id="passwordIcon2"
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-0" style="margin-left: 20px">
+                        <p class="mb-0 form-end-para">
+                          By creating an account, you agree to SAT Terms &
+                          Conditions and Privacy Policy
+                        </p>
+                      </div>
+                      <div class="col-md-12 d-flex justify-content-center">
+                        <button
+                          type="submit"
+                          class="btn register-btn submit px-3"
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                    <!--  -->
+                    <p class="mt-3 text-center create-account-para-fonts">
+                      Already have an account? <a href="#"> Login </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/file.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate FontAwesome Icon on Hover</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .icondiv {
+        font-size: 50px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .icon {
+        height: 20px;
+        width: 20px;
+        font-size: 20px
+      }
+      .icondiv:hover .icon {
+        animation: move 0.2s linear forwards, fade-out 0.1s linear 0.2s forwards,
+          reset 0s linear 0.3s forwards, fade-in 0.1s linear 0.3s forwards;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(
+            200px
+          ); /* Adjust this value to control the distance */
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-out {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes reset {
+        0% {
+          transform: translateX(200px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="icondiv">
+      <i class="fas fa-arrow-right icon"></i>
+    </div>
+  </body>
+</html>

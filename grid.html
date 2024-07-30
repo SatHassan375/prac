@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* Adjust the gap based on your preference */
+      }
+
+      /* Style for the columns (optional) */
+      .column {
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+      }
+      @media only screen and (max-width: 768px) {
+      body {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+  <div class="column">Column 3</div>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+    <style>
+      .btn:hover {
+        color: var(--bs-btn-hover-color);
+        background-color: rgba(235, 235, 235, 1);
+        border-color: var(--bs-btn-hover-border-color);
+        color: rgba(54, 54, 54, 1);
+      }
+      .search-toggle {
+        background-color: rgba(31, 98, 174, 1);
+        color: white;
+      }
+      .search-togal-btn {
+        width: 40px !important;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        background-color: rgba(92, 184, 255, 1) !important;
+      }
+      .search-bar-texture {
+        color: rgba(31, 98, 174, 1) !important;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+        background-color: #ffffff;
+      }
+      .input-form-grop-hdr {
+        height: 34px !important;
+        width: 60%;
+      }
+      .remove-focus:focus {
+        box-shadow: none;
+      }
+      select  {
+        border-radius: 5px;
+        color: rgba(31, 98, 174, 1) !important;
+        border-bottom: 0.1px solid #80808052 !important;
+        padding: 10px !important;
+      }
+      .placeh-holder-clr {
+        .form-control::placeholder {
+          color: rgba(31, 98, 174, 1) !important;
+        }
+        .form-control {
+          border-radius: 0px !important;
+          height: 40px;
+        }
+      }
+      .style-input-group .form-select {
+        width: 110px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container d-flex justify-content-center mt-5">
+      <div
+        class="btn-toolbar mb-3"
+        role="toolbar"
+        aria-label="Toolbar with button groups"
+      >
+        <form
+          action="
+          "
+        >
+          <div class="input-group style-input-group input-form-grop-hdr">
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Make</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option selected>Make</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option selected>Make</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Modal</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Type</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Steering</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Year(min)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <span class="input-group-text search-bar-texture" id="basic-addon"
+              ><label class="search-bar-texture bg-body">To</label></span
+            >
+            <select
+              class="form-select remove-focus"
+              aria-label="Default select example"
+            >
+              <option selected>Year(max)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <span class="placeh-holder-clr">
+              <input
+                type="text"
+                class="form-control search-bar-texture remove-focus"
+                placeholder="Stock ID or Keywords
+                  "
+                aria-label="Stock ID or Keywords
+      "
+                aria-describedby="basic-addon2"
+              />
+            </span>
+            <button
+              class="btn search-toggle"
+              type="submit"
+              aria-expanded="false"
+              class="search-togal-btn"
+            >
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

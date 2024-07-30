@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .userform {
+        height: 48px;
+        color: #353c4d;
+        display: flex;
+        align-items: center;
+        border: 1px solid #ced0d4;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .login-user-input {
+        border: none;
+        background: transparent;
+        width: 100%;
+        margin: 0;
+        padding: 7px 8px;
+        font-size: 14px;
+        color: inherit;
+        border: 1px solid transparent;
+        border-radius: inherit;
+      }
+
+      .login-user-input::placeholder {
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: -0.01em;
+        color: #aeb1b8;
+      }
+      .login-user {
+        height: 22px;
+        border-right: 1px solid #aeb1b8 !important;
+        text-indent: -999px;
+        overflow: hidden;
+        padding-inline:15px;
+        margin: 0;
+        border: 1px solid transparent;
+        border-radius: none;
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
+      .login-user:hover {
+        opacity: 1;
+      }
+
+      .login-user:focus,
+      .login-user-input:focus {
+        outline: 0;
+      }
+      .userform:focus-within {
+        border: 1px solid #2a9fe8;
+      }
+      .bg-img-user {
+        background: transparent url("/user-mob-pro.svg") no-repeat center;
+      }
+      .bg-img-password {
+        background: transparent url("/lock-mob-pro.svg") no-repeat center;
+      }
+      .bg-img-email {
+        background: transparent url("/mail-mob-pro.svg") no-repeat center;
+      }
+      .login-eye{
+        height: 22px;
+        text-indent: -999px;
+        overflow: hidden;
+        padding-inline:15px;
+        margin: 0;
+        border: 1px solid transparent;
+        border-radius: none;
+        cursor: pointer;
+        opacity: 0.7;
+        background: transparent url("/eye-off-mob-pro.svg") no-repeat center;
+      }
+      .login-eye:hover {
+        opacity: 1;
+      }
+
+      .login-eye:focus,
+      .login-eye-input:focus {
+        outline: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="userform">
+        <button type="submit" class="login-user bg-img-user"></button>
+        <input
+          type="text"
+          class="login-user-input"
+          placeholder="Full name..."
+        />
+      </div>
+      <div class="userform">
+        <button type="submit" class="login-user bg-img-email"></button>
+        <input
+          type="email"
+          class="login-user-input"
+          placeholder="Email..."
+        />
+      </div>
+      <div class="userform">
+        <button type="submit" class="login-user bg-img-password"></button>
+        <input
+          type="password"
+          class="login-user-input"
+          placeholder="Password"
+        />
+        <button type="submit" class="login-eye bg-img-eye"></button>
+      </div>
+      <div class="userform">
+        <button type="submit" class="login-user bg-img-password"></button>
+        <input
+          type="password"
+          class="login-user-input"
+          placeholder="Password"
+        />
+        <button type="submit" class="login-eye bg-img-eye"></button>
+      </div>
+      <!-- <form class="nosubmit">
+        <input class="nosubmit" type="search" placeholder="Search..." />
+      </form> -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@21.2.7/build/css/intlTelInput.css"
+    />
+    <style>
+      .phone-car-detail {
+        border: 1px solid #5d63708f;
+        border-radius: 4px;
+        height: 34px;
+        font-size: 10px;
+        background-color: #f6f6f8;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="phone-car-detail" id="phone" name="phone_no" />
+    <script src="/js/phoneintl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const input = document.querySelector("#phone");
+        const iti = window.intlTelInput(input, {
+          utilsScript: "/js/phoneutils.js",
+        });
+
+        $(input).on("blur", function () {
+          console.log($(this).val());
+          const instance = window.intlTelInputGlobals.getInstance(input);
+          const countryData = instance.getSelectedCountryData();
+          // country data like code and number
+          console.log(countryData);
+          // validation
+          const isValid = iti.isValidNumber();
+          if (isValid) {
+            console.log("Phone number is valid");
+          } else {
+            const error = iti.getValidationError();
+            console.log("Validation error:", error);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

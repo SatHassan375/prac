@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+      }
+      p {
+        width: 213px;
+        height: 283px;
+      }
+      .h-280{
+        height: 280px;
+      }
+      .w-30p{
+        width: 30px;
+      }
+      .shimmer {
+        background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%);
+        background-size: 300%;
+        background-position-x: 100%;
+        animation: shimmer 1s infinite linear;
+        padding: 10px;
+        margin-inline: 10px;
+      }
+      @keyframes shimmer {
+        to {
+          background-position-x: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span class="shimmer h-280 w-30p"></span>
+      <p class="shimmer"></p>
+      <p class="shimmer"></p>
+    </div>
+  </body>
+</html>

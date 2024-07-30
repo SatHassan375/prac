@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myDiv {
+        transition: opacity 2s ease-in-out;
+        opacity: 0;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .form-mobile-search-main {
+        background-color: #EDEDF1;
+        color: #555;
+        display: flex;
+        padding: 2px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin: 0 0 30px;
+      }
+
+     .form-mobile-search-main input[type="search"] {
+        width: 100%;
+        height: 38px;
+        border: none;
+        background: #EDEDF1;
+        margin: 0;
+        padding: 7px 8px;
+        font-size: 14px;
+        color: inherit;
+        border: 1px solid transparent;
+        border-radius: inherit;
+      }
+
+     .form-mobile-search-main input[type="search"]::placeholder {
+        color: #bbb;
+      }
+
+     .form-mobile-search-main button[type="submit"] {
+        text-indent: -999px;
+        overflow: hidden;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        border: 1px solid transparent;
+        border-radius: inherit;
+        background: transparent
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+          no-repeat center;
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
+    .form-mobile-search-main  button[type="submit"]:hover {
+        opacity: 1;
+      }
+
+     .form-mobile-search-main button[type="submit"]:focus,
+     .form-mobile-search-main input[type="search"]:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-mobile-search-main">
+        <input type="search" placeholder="Search Your Dream Car" />
+        <button type="submit">Search</button>
+      </form>
+      <!-- <form class="nosubmit">
+      <input class="nosubmit" type="search" placeholder="Search...">
+    </form> -->
+    </div>
+    <!-- <button onclick="toggleDiv()">Toggle Div</button> -->
+
+    <div id="myDiv" class="hidden">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. At nam nemo,
+      rerum enim voluptatibus expedita quaerat provident perferendis voluptates
+      dolores blanditiis aliquam sapiente quos! Consectetur eaque rerum, dolorem
+      corporis iure doloribus officia? Sequi tenetur, quam autem veritatis
+      corporis doloremque consequuntur perspiciatis recusandae dignissimos
+      repudiandae vitae ratione nihil nulla omnis libero nobis facilis quisquam
+      a. Odit distinctio officia qui deleniti ipsa, facere molestias numquam
+      dolorum accusantium ducimus, reiciendis nulla iste maiores ipsam dolor
+      corporis tempora adipisci sequi. Facere rerum voluptatem soluta natus, eos
+      amet, mollitia, minima culpa dolore perspiciatis nobis dolores vero autem.
+      Odit ut aut assumenda voluptas fugiat repellat nam corrupti, cum deleniti
+      quod eos quibusdam unde exercitationem iure quia amet quas at? Veritatis
+      inventore repudiandae velit officia at quod.
+    </div>
+    <script>
+      function toggleDiv() {
+        var div = document.getElementById("myDiv");
+        div.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
